@@ -13,7 +13,8 @@ THIN=`pwd`/"thin"
 
 #FDK_AAC=`pwd`/fdk-aac/fdk-aac-ios
 
-CONFIGURE_FLAGS="--enable-cross-compile --disable-debug --disable-programs --disable-doc --enable-pic --disable-hwaccels --disable-encoders --disable-filters"
+CONFIGURE_FLAGS="--enable-cross-compile --disable-debug --disable-programs --disable-doc --enable-pic --disable-hwaccels --disable-encoders --disable-filters --disable-muxers --enable-small
+"
 
 if [ "$X264" ]
 then
