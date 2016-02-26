@@ -13,8 +13,7 @@ THIN=`pwd`/"thin"
 
 #FDK_AAC=`pwd`/fdk-aac/fdk-aac-ios
 
-CONFIGURE_FLAGS="--enable-cross-compile --disable-debug --disable-programs \
-                 --disable-doc --enable-pic"
+CONFIGURE_FLAGS="--enable-cross-compile --disable-debug --disable-programs --disable-doc --enable-pic --disable-hwaccels --disable-encoders --disable-filters"
 
 if [ "$X264" ]
 then
@@ -29,7 +28,7 @@ fi
 # avresample
 #CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-avresample"
 
-ARCHS="arm64 armv7 x86_64 i386"
+ARCHS="arm64 armv7 x86_64"
 
 COMPILE="y"
 LIPO="y"

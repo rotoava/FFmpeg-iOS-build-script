@@ -1,3 +1,40 @@
+
+
+## Build FFmpeg For UPAVPlayerLib
+
+
+
+__解决异常__ ：``` building armv7...
+GNU assembler not found, install/update gas-preprocessor```原因是本地 gas-preprocessor未更新。删除本地gas-preprocessor（/usr/local/bin/gas-preprocessor.pl），重新运行脚本即可。	
+
+__CONFIGURE_FLAGS__ 添加：```--disable-hwaccels```  //开启硬件加速引起videotoolbox连接的一个错误，暂时关闭处理。 错误信息如下：
+
+```
+Undefined symbols for architecture x86_64:
+  "_CMBlockBufferCreateWithMemoryBlock", referenced from:
+      _videotoolbox_common_end_frame in libavcodec.a(videotoolbox.o)
+  "_CMSampleBufferCreate", referenced from:
+      _videotoolbox_common_end_frame in libavcodec.a(videotoolbox.o)
+  "_CMVideoFormatDescriptionCreate", referenced from:
+      _av_videotoolbox_default_init2 in libavcodec.a(videotoolbox.o)
+  "_ModPlug_GetCurrentOrder", referenced from:
+ 
+```
+
+__CONFIGURE_FLAGS__ 添加: ```--disable-encoders --disable-filters ```//无需编码和滤镜，关闭减小文件大小
+
+
+__ARCHS__ :```ARCHS="arm64 armv7 x86_64"``` //去掉了 i386
+
+
+
+
+
+
+
+
+
+
 # FFmpeg iOS build script
 
 [![Build Status](https://travis-ci.org/kewlbear/FFmpeg-iOS-build-script.svg?branch=master)](https://travis-ci.org/kewlbear/FFmpeg-iOS-build-script)
