@@ -11,10 +11,19 @@ THIN=`pwd`/"thin"
 # absolute path to x264 library
 #X264=`pwd`/fat-x264
 
-#FDK_AAC=`pwd`/fdk-aac/fdk-aac-ios
+# #FDK_AAC=`pwd`/fdk-aac/fdk-aac-ios
 
-CONFIGURE_FLAGS="--enable-cross-compile --disable-debug --disable-programs --disable-doc --enable-pic  --enable-small --disable-hwaccels --disable-filters
-"
+# CONFIGURE_FLAGS="--enable-cross-compile --disable-debug --disable-programs --disable-doc --enable-pic  --enable-small --disable-hwaccels --disable-filters
+# "
+
+
+CONFIGURE_FLAGS="--enable-cross-compile --disable-debug  \
+                  --disable-doc --enable-pic --disable-decoders --disable-hwaccels\
+                  --enable-encoder=aac --disable-devices --disable-ffplay --disable-ffserver \
+                  --enable-decoder=h264 --enable-decoder=aac  \
+                  --disable-avfilter --disable-filters \
+                  --disable-avdevice --enable-small"
+
 
 if [ "$X264" ]
 then
